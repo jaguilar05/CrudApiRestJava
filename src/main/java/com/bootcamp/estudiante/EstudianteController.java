@@ -1,6 +1,7 @@
 package com.bootcamp.estudiante;
 
 
+import com.bootcamp.materia.Materia;
 import com.bootcamp.libro.Libro;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -61,6 +62,11 @@ public class EstudianteController {
     @PostMapping("{estudiante_id}/libros")
     public Estudiante agregarLibroAEstudiante(@PathVariable("estudiante_id") Long estudianteId, @RequestBody Libro libro){
         return estudianteService.agregarLibroAEstudiante(estudianteId,libro);
+    }
+
+    @PostMapping("{estudiante_id}/materias")
+    public Estudiante agregarMateriaAEstudiante(@PathVariable("estudiante_id") Long estudianteId, @RequestBody Materia materia){
+        return estudianteService.agregarMateriaAEstudiante(estudianteId,materia);
     }
 
 }
